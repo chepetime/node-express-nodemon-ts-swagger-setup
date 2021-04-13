@@ -7,7 +7,7 @@ import {
 } from "../common/common.routes.config";
 
 import { UsersController } from "./controllers/users.controller";
-import { UsersSwagger } from "./user.swagger";
+import { UserDocs } from "./docs/user.docs";
 
 export class UsersRoutes extends CommonRoutesConfig implements configureRoutes {
   constructor(app: Application, openApi: OpenApi) {
@@ -16,11 +16,11 @@ export class UsersRoutes extends CommonRoutesConfig implements configureRoutes {
   }
   configureRoutes() {
     const usersController = new UsersController();
-    const usersswagger = new UsersSwagger();
+    const userDocs = new UserDocs();
 
     this.app.get(`/users`, [usersController.listUsers]);
 
-    this.app.post(`/users`, [usersController.createUser]);
+    this.app.post(`/users`, usersController.createUser);
 
     this.app.put(`/users/:userId`, [usersController.put]);
 
@@ -33,8 +33,8 @@ export class UsersRoutes extends CommonRoutesConfig implements configureRoutes {
     this.openApi.addPath(
       "/users",
       {
-        get: usersswagger.listUsers,
-        post: usersswagger.createUser,
+        get: userDocs.listUsers,
+        post: userDocs.createUser,
       },
       true
     );
@@ -42,7 +42,7 @@ export class UsersRoutes extends CommonRoutesConfig implements configureRoutes {
     this.openApi.addPath(
       "/users/:userId",
       {
-        get: usersswagger.getUserById,
+        get: userDocs.getUserById,
       },
       true
     );

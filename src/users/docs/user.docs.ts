@@ -14,7 +14,7 @@ const responseSchema = {
   birthdate: Types.Date({ description: "Birthdate" }),
 };
 
-export class UsersSwagger {
+export class UserDocs {
   listUsers = {
     summary: "Get all users",
     description: "This operation retrieves all users",

@@ -6,11 +6,19 @@ import { UsersRoutes } from "./users/users.routes.config";
 
 import { initOpenApi, openApiInstance } from "./openapi";
 
-const PORT = 8000;
+const PORT = 3000;
 const app: Application = express();
 const server: http.Server = http.createServer(app);
 
 const routes: any = [];
+
+app.use(express.json());
+
+app.use(
+  express.urlencoded({
+    extended: true,
+  })
+);
 
 routes.push(new UsersRoutes(app, openApiInstance));
 
