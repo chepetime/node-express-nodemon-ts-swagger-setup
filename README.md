@@ -21,7 +21,7 @@ npm run dev
 - ✅ https://makinhs.medium.com/another-expressjs-api-tutorial-for-2020-part-02-going-to-typescript-1bb574c8d12b
 - ✅ https://makinhs.medium.com/another-expressjs-api-tutorial-for-2020-part-03-managing-your-user-endpoints-e5e8f1e9741d
 - ✅ https://makinhs.medium.com/another-expressjs-api-tutorial-for-2020-part-04-configuring-controllers-f748d2477295
-- https://makinhs.medium.com/another-expressjs-api-tutorial-for-2020-part-05-configuring-services-2fb8c64a437c
+- ✅ https://makinhs.medium.com/another-expressjs-api-tutorial-for-2020-part-05-configuring-services-2fb8c64a437c
 - https://makinhs.medium.com/another-expressjs-api-tutorial-for-2020-part-06-middlewares-5b7102e58179
 - https://makinhs.medium.com/another-expressjs-api-tutorial-for-2020-part-07-your-first-tests-f2f6a7ec9ebf
 - https://makinhs.medium.com/another-expressjs-api-tutorial-for-2020-part-08-auth-module-fa896463c216
