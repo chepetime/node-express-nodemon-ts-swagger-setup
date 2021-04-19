@@ -8,14 +8,15 @@
   "main": "index.js",
   "scripts": {
     "tsc": "tsc",
-    "start": "npm run tsc && node ./dist/server.js",
-    "dev": "nodemon --config nodemon.json src/server.ts",
-    "dev:debug": "nodemon --config nodemon.json --inspect-brk src/server.ts",
-    "test-dev": "nodemon --watch . --ext ts --exec \"mocha -r ts-node/register test/**/*.test.ts\"",
+    "start": "npm run tsc && node ./dist/app.js",
+    "dev": "nodemon --config nodemon.json src/app.ts",
+    "dev:debug": "nodemon --config nodemon.json --inspect-brk src/app.ts",
+    "test:dev": "nodemon --watch . --ext ts --exec \"mocha -r ts-node/register src/test/**/*.test.ts\"",
     "build": "npm run tsc ",
-    "serve": "node ./dist/server.js"
+    "serve": "node ./dist/app.js"
   },
   "dependencies": {
+    "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "module-alias": "^2.2.2",
     "short-uuid": "^4.1.0",

@@ -1,3 +1,5 @@
+import config from "./config";
+
 import express, { Application, Request, Response } from "express";
 
 import * as http from "http";
@@ -6,7 +8,7 @@ import { UsersRoutes } from "./users/users.routes.config";
 
 import { initOpenApi, openApiInstance } from "./openapi";
 
-const PORT = 3000;
+const PORT = config.PORT || 3000;
 const app: Application = express();
 const server: http.Server = http.createServer(app);
 
@@ -22,7 +24,7 @@ app.use(
 
 routes.push(new UsersRoutes(app, openApiInstance));
 
-app.get("/", (req: Request, res: Response) => {
+app.get("/", (_req: Request, res: Response) => {
   res.status(200).send(`Server running at port ${PORT}`);
 });
 
@@ -34,3 +36,5 @@ server.listen(PORT, () => {
     console.log(`Routes configured for: ${route.getName()}`);
   });
 });
+
+export default app;
