@@ -1,12 +1,13 @@
-import config from "./config";
+require("module-alias/register");
 
 import express, { Application, Request, Response } from "express";
-
 import * as http from "http";
-import { CommonRoutesConfig } from "./common/common.routes.config";
-import { UsersRoutes } from "./users/users.routes.config";
 
-import { initOpenApi, openApiInstance } from "./openapi";
+import config from "@/config";
+
+import { CommonRoutesConfig } from "@/common/common.routes.config";
+import { UsersRoutes } from "@/modules/users/users.routes.config";
+import { initOpenApi, openApiInstance } from "@/openapi";
 
 const PORT = config.PORT || 3000;
 const app: Application = express();

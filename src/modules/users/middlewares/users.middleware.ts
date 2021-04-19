@@ -1,6 +1,6 @@
 import { Request, Response, NextFunction } from "express";
 
-import { UsersService } from "../services/user.services";
+import { UsersService } from "@/modules/users/services/user.services";
 
 export class UsersMiddleware {
   private static instance: UsersMiddleware;

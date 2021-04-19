@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { UsersService } from "../services/user.services";
+import { UsersService } from "@/modules/users/services/user.services";
 
 export class UsersController {
   constructor() {}
@@ -7,6 +7,7 @@ export class UsersController {
   listUsers(req: Request, res: Response) {
     const usersService = UsersService.getInstance();
     const users = usersService.list(100, 0);
+
     res.status(200).send(users);
   }
 

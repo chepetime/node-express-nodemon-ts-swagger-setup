@@ -15,7 +15,7 @@ export class GenericInMemoryDao {
     return GenericInMemoryDao.instance;
   }
 
-  addUser(user: any) {
+  async addUser(user: any) {
     return new Promise((resolve) => {
       user.id = shortUUID.generate();
       this.users.push(user);
@@ -24,6 +24,8 @@ export class GenericInMemoryDao {
   }
 
   getUsers() {
+    console.log(this.users);
+    return this.users;
     return new Promise((resolve) => {
       resolve(this.users);
     });

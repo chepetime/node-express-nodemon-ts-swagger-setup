@@ -1,21 +1,21 @@
 import { Application } from "express";
-import { OpenApi, textPlain, Types, bodySchema } from "ts-openapi";
+import { OpenApi } from "ts-openapi";
 
 import {
   CommonRoutesConfig,
   configureRoutes,
-} from "../common/common.routes.config";
+} from "@/common/common.routes.config";
 
-import { UsersMiddleware } from "./middlewares/users.middleware";
-
-import { UsersController } from "./controllers/users.controller";
-import { UserDocs } from "./docs/user.docs";
+import { UsersMiddleware } from "@/modules/users/middlewares/users.middleware";
+import { UsersController } from "@/modules/users/controllers/users.controller";
+import { UserDocs } from "@/modules/users/docs/user.docs";
 
 export class UsersRoutes extends CommonRoutesConfig implements configureRoutes {
   constructor(app: Application, openApi: OpenApi) {
     super(app, "UsersRoute", openApi);
     this.configureRoutes();
   }
+
   configureRoutes() {
     const usersController = new UsersController();
     const usersMiddleware = UsersMiddleware.getInstance();

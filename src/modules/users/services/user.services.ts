@@ -1,5 +1,5 @@
-import { CRUD } from "../../common/interfaces/crud.interface";
-import { GenericInMemoryDao } from "../daos/in.memory.dao";
+import { CRUD } from "@/common/interfaces/crud.interface";
+import { GenericInMemoryDao } from "@/modules/users/daos/in.memory.dao";
 
 export class UsersService implements CRUD {
   private static instance: UsersService;
