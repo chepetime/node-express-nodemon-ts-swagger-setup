@@ -10,9 +10,10 @@
     "tsc": "tsc",
     "start": "npm run tsc && node ./dist/app.js",
     "dev": "npm run tsc && nodemon --config nodemon.json src/app.ts",
-    "dev:docker": "nodemon --watch . --ext ts --exec \"docker-compose build && docker-compose up\"",
     "dev:debug": "npm run tsc && nodemon --config nodemon.json --inspect-brk src/app.ts",
+    "dev:docker": "nodemon --watch . --ext ts --exec \"docker-compose build && docker-compose up\"",
     "dev:test": "npm run tsc && nodemon --config nodemon.json --watch . --ext ts --exec \"mocha -r ts-node/register src/test/**/*.test.ts\"",
+    "test": "mocha --exit -r ts-node/register src/test/**/*.test.ts",
     "build": "npm run tsc ",
     "serve": "node ./dist/app.js"
   },
