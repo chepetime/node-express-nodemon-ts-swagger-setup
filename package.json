@@ -9,15 +9,17 @@
   "scripts": {
     "tsc": "tsc",
     "start": "npm run tsc && node ./dist/app.js",
-    "dev": "nodemon --config nodemon.json src/app.ts",
-    "dev:debug": "nodemon --config nodemon.json --inspect-brk src/app.ts",
-    "test:dev": "nodemon --watch . --ext ts --exec \"mocha -r ts-node/register src/test/**/*.test.ts\"",
+    "dev": "npm run tsc && nodemon --config nodemon.json src/app.ts",
+    "dev:debug": "npm run tsc && nodemon --config nodemon.json --inspect-brk src/app.ts",
+    "dev:test": "npm run tsc && nodemon --watch . --ext ts --exec \"mocha -r ts-node/register src/test/**/*.test.ts\"",
     "build": "npm run tsc ",
     "serve": "node ./dist/app.js"
   },
   "dependencies": {
+    "argon2": "^0.27.2",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
     "module-alias": "^2.2.2",
     "short-uuid": "^4.1.0",
     "swagger-ui-express": "^4.1.6"
@@ -42,5 +44,11 @@
   },
   "_moduleAliases": {
     "@": "dist"
-  }
+  },
+  "keywords": [
+    "REST",
+    "API",
+    "ExpressJS",
+    "NodeJS"
+  ]
 }

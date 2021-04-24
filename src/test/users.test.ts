@@ -6,9 +6,9 @@ import { expect } from "chai";
 let firstUserIdTest = "";
 
 let firstUserBody = {
-  name: "Marcos Silva",
-  email: "tio.makin@gmail.com",
-  password: "Pass#your!word",
+  name: "José Lugo",
+  email: "me@joselugo.dev",
+  password: "password",
 };
 
 it("should POST /users", async function () {
@@ -43,7 +43,7 @@ it(`should GET /users`, async function () {
 });
 
 it("should PUT /users/:userId", async function () {
-  const name = "Jose";
+  const name = "Jose Manuel Gulias Lugo";
   const res = await request(app).put(`/users/${firstUserIdTest}`).send({
     name: name,
     email: firstUserBody.email,

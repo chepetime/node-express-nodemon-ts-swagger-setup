@@ -24,7 +24,6 @@ export class GenericInMemoryDao {
   }
 
   getUsers() {
-    console.log(this.users);
     return this.users;
     return new Promise((resolve) => {
       resolve(this.users);

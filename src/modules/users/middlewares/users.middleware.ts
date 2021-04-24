@@ -43,16 +43,23 @@ export class UsersMiddleware {
 
   async validateUserExists(req: Request, res: Response, next: NextFunction) {
     const userService = UsersService.getInstance();
-    const user = await userService.readById(req.params.userId);
 
-    if (user) {
-      next();
-    } else {
-      res.status(404).send({ error: `User ${req.params.userId} not found` });
+    try {
+      const user = await userService.readById(req.params.userId);
+
+      if (user) {
+        next();
+      } else {
+        res
+          .status(404)
+          .send({ error: `User ${req.params.userId} not found 2` });
+      }
+    } catch (error) {
+      res.status(404).send({ error: `User ${req.params.userId} not found 2` });
     }
   }
 
-  async extractUserId(req: Request, res: Response, next: NextFunction) {
+  async extractUserId(req: Request, _res: Response, next: NextFunction) {
     req.body.id = req.params.userId;
     next();
   }

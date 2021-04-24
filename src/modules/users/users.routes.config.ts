@@ -21,37 +21,59 @@ export class UsersRoutes extends CommonRoutesConfig implements configureRoutes {
     const usersMiddleware = UsersMiddleware.getInstance();
     const userDocs = new UserDocs();
 
+    /**
+     * Get all Users
+     */
     this.app.get(`/users`, [usersController.listUsers]);
 
+    /**
+     * Create User
+     */
     this.app.post(`/users`, [
       usersMiddleware.validateRequiredCreateUserBodyFields,
       usersMiddleware.validateSameEmailDoesntExist,
       usersController.createUser,
     ]);
 
+    /**
+     * Update User (whole)
+     */
     this.app.put(`/users/:userId`, [
       usersMiddleware.validateUserExists,
       usersMiddleware.extractUserId,
       usersController.put,
     ]);
 
+    /**
+     * Update User (single data)
+     */
     this.app.patch(`/users/:userId`, [
       usersMiddleware.validateUserExists,
       usersMiddleware.extractUserId,
       usersController.patch,
     ]);
 
+    /**
+     * Delete User
+     */
     this.app.delete(`/users/:userId`, [
       usersMiddleware.validateUserExists,
       usersMiddleware.extractUserId,
       usersController.removeUser,
     ]);
 
+    /**
+     * Get single User
+     */
     this.app.get(`/users/:userId`, [
       usersMiddleware.validateUserExists,
       usersMiddleware.extractUserId,
       usersController.getUserById,
     ]);
+
+    /**
+     * Docs
+     */
 
     this.openApi.addPath(
       "/users",
@@ -69,5 +91,7 @@ export class UsersRoutes extends CommonRoutesConfig implements configureRoutes {
       },
       true
     );
+
+    // EOC
   }
 }
